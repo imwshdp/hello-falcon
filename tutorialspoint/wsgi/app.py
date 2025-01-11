@@ -23,7 +23,7 @@ app.add_route("/errors", ErrorsController())
 app.add_route("/hooks", HooksController())
 
 if __name__ == '__main__':
-    print('Serving on port 8000')
+    print('Serving on http://127.0.0.1:8000')
 
     # """wsgiref serving"""
     # with make_server('', 8000, app) as httpd:
