@@ -9,7 +9,15 @@ from controllers.cookies import CookiesController
 from controllers.errors import ErrorsController
 from controllers.hooks import HooksController
 
-app = falcon.App()
+from middlewares.main import MyMiddleware
+
+app = falcon.App(
+    middleware = [
+        MyMiddleware(),
+        falcon.CORSMiddleware(allow_origins='*', allow_credentials='*')
+    ],
+    # cors_enable = True
+)
 
 app.add_route('/', MainController())
 
